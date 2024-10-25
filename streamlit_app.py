@@ -5,7 +5,7 @@ import pandas as pd
 # import matplotlib as plt
 # import os
 # zaczynamy od zaimportowania bibliotek
-
+st.image('spongebob.jpg', caption='Spongebob')
 st.success('Gratulacje! Z powodzeniem uruchomiłeś aplikację')
 # streamlit jest wykorzystywany do tworzenia aplikacji
 # z tego powodu dobrą praktyką jest informowanie użytkownika o postępie, błędach, etc.
@@ -45,8 +45,8 @@ st.text('Aplikacja do tłumaczenia tekstu')
 #     st.write("Echo")
 # możemy też to zrobić prościej używając echo - pokazujemy kod i równocześnie go wykonujemy
 
-df = pd.read_csv("DSP_4.csv", sep = ';')
-st.dataframe(df)
+# df = pd.read_csv("DSP_4.csv", sep = ';')
+# st.dataframe(df)
 # musimy tylko pamiętać o właściwym określeniu separatora (w tym wypadku to średnik)
 # masz problem z otworzeniem pliku? sprawdź w jakim katalogu pracujesz i dodaj tam plik (albo co bardziej korzystne - zmień katalog pracy)
 # os.getcwd() # pokaż bieżący katalog
