@@ -63,19 +63,19 @@ input_text = st.text_area("Enter text to translate from English to German:")
 # Load the translation pipeline
 translator = pipeline('translation_en_to_de')
 
-option = st.selectbox(
-    "Opcje",
-    [
-        "Wydźwięk emocjonalny tekstu (eng)",
-        "???",
-    ],
-)
-if option == "Wydźwięk emocjonalny tekstu (eng)":
-    text = st.text_area(label="Wpisz tekst")
-    if text:
-        classifier = pipeline("sentiment-analysis")
-        answer = classifier(text)
-        st.write(answer)
+# option = st.selectbox(
+#     "Opcje",
+#     [
+#         "Wydźwięk emocjonalny tekstu (eng)",
+#         "???",
+#     ],
+# )
+# if option == "Wydźwięk emocjonalny tekstu (eng)":
+#     text = st.text_area(label="Wpisz tekst")
+#     if text:
+#         classifier = pipeline("sentiment-analysis")
+#         answer = classifier(text)
+#         st.write(answer)
 
 # Perform translation when the button is clicked
 if st.button('Translate'):
