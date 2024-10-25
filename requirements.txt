@@ -8,3 +8,4 @@ streamlit~=1.39.0
 transformers~=4.46.0
 torch~=2.5.0
 tensorflow~=2.18.0
+tf-keras~=2.18.0
