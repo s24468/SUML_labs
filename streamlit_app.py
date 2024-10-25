@@ -57,13 +57,11 @@ st.header('Przetwarzanie języka naturalnego')
 import streamlit as st
 from transformers import pipeline
 
-option = st.selectbox(
-    "Opcje",
-    [
-        "Wydźwięk emocjonalny tekstu (eng)",
-        "???",
-    ],
-)
+# Input text box for the user
+input_text = st.text_area("Enter text to translate from English to German:")
+
+# Load the translation pipeline
+translator = pipeline('translation_en_to_de')
 
 if option == "Wydźwięk emocjonalny tekstu (eng)":
     text = st.text_area(label="Wpisz tekst")
@@ -71,6 +69,27 @@ if option == "Wydźwięk emocjonalny tekstu (eng)":
         classifier = pipeline("sentiment-analysis")
         answer = classifier(text)
         st.write(answer)
+
+# Perform translation when the button is clicked
+if st.button('Translate'):
+    if input_text:
+        # Perform the translation
+        translation = translator(input_text, max_length=512)
+        translated_text = translation[0]['translation_text']
+
+        # Display the translated text
+        st.write('Translated text:')
+        st.write(translated_text)
+    else:
+        st.write("Please enter some text to translate.")
+
+option = st.selectbox(
+    "Opcje",
+    [
+        "Wydźwięk emocjonalny tekstu (eng)",
+        "???",
+    ],
+)
 
 # st.subheader('Zadanie do wykonania')
 # st.write('Wykorzystaj Huggin Face do stworzenia swojej własnej aplikacji tłumaczącej tekst z języka angielskiego na język niemiecki. Zmodyfikuj powyższy kod dodając do niego kolejną opcję, tj. tłumaczenie tekstu. Informacje potrzebne do zmodyfikowania kodu znajdziesz na stronie Huggin Face - https://huggingface.co/docs/transformers/index')
