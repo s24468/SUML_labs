@@ -83,13 +83,13 @@ if st.button('Translate'):
     else:
         st.write("Please enter some text to translate.")
 
-option = st.selectbox(
-    "Opcje",
-    [
-        "Wydźwięk emocjonalny tekstu (eng)",
-        "???",
-    ],
-)
+# option = st.selectbox(
+#     "Opcje",
+#     [
+#         "Wydźwięk emocjonalny tekstu (eng)",
+#         "???",
+#     ],
+# )
 
 # st.subheader('Zadanie do wykonania')
 # st.write('Wykorzystaj Huggin Face do stworzenia swojej własnej aplikacji tłumaczącej tekst z języka angielskiego na język niemiecki. Zmodyfikuj powyższy kod dodając do niego kolejną opcję, tj. tłumaczenie tekstu. Informacje potrzebne do zmodyfikowania kodu znajdziesz na stronie Huggin Face - https://huggingface.co/docs/transformers/index')
