@@ -6,3 +6,5 @@ cufflinks~=0.17.3
 scikit-learn~=1.5.2
 streamlit~=1.39.0
 transformers~=4.46.0
+torch
+tensorflow
