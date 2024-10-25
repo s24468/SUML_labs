@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+
 import time
 import matplotlib as plt
 import os
@@ -22,7 +23,7 @@ st.success('Gratulacje! Z powodzeniem uruchomiłeś aplikację')
     # st.success('Done')
 # możemy dzięki temu "ukryć" późniejsze ładowanie aplikacji
 
-st.title('Lab05. Streamlit')
+st.title('Text translator')
 # title, jak sama nazwa wskazuje, używamy do wyświetlenia tytułu naszej aplikacji
 
 st.header('Wprowadzenie do zajęć')
@@ -31,14 +32,14 @@ st.header('Wprowadzenie do zajęć')
 st.subheader('O Streamlit')
 # subheader to jeden z podtytułów wykorzystywnaych w Streamlit
 
-st.text('To przykładowa aplikacja z wykorzystaniem Streamlit')
+st.text('Aplikacja do tłumaczenia tekstu')
 # text używamy do wyświetlenia dowolnego tekstu. Można korzystać z polskich znaków.
-
-st.write('Streamlit jest biblioteką pozwalającą na uruchomienie modeli uczenia maszynowego.')
-# write używamy również do wyświetlenia tekstu, różnica polega na formatowaniu.
-
-st.code("st.write()", language='python')
-# code może nam się czasami przydać, jeżeli chcielibyśmy pokazać np. klientowi fragment kodu, który wykorzystujemy w aplikacji
+#
+# st.write('Streamlit jest biblioteką pozwalającą na uruchomienie modeli uczenia maszynowego.')
+# # write używamy również do wyświetlenia tekstu, różnica polega na formatowaniu.
+#
+# st.code("st.write()", language='python')
+# # code może nam się czasami przydać, jeżeli chcielibyśmy pokazać np. klientowi fragment kodu, który wykorzystujemy w aplikacji
 
 with st.echo():
     st.write("Echo")
@@ -73,9 +74,10 @@ if option == "Wydźwięk emocjonalny tekstu (eng)":
 
 st.subheader('Zadanie do wykonania')
 st.write('Wykorzystaj Huggin Face do stworzenia swojej własnej aplikacji tłumaczącej tekst z języka angielskiego na język niemiecki. Zmodyfikuj powyższy kod dodając do niego kolejną opcję, tj. tłumaczenie tekstu. Informacje potrzebne do zmodyfikowania kodu znajdziesz na stronie Huggin Face - https://huggingface.co/docs/transformers/index')
-st.write('🐞 Dodaj właściwy tytuł do swojej aplikacji, może jakieś grafiki?')
+# st.write('🐞 Dodaj właściwy tytuł do swojej aplikacji, może jakieś grafiki?')
 st.write('🐞 Dodaj krótką instrukcję i napisz do czego służy aplikacja')
 st.write('🐞 Wpłyń na user experience, dodaj informacje o ładowaniu, sukcesie, błędzie, itd.')
-st.write('🐞 Na końcu umieść swój numer indeksu')
+# st.write('🐞 Na końcu umieść swój numer indeksu')
 st.write('🐞 Stwórz nowe repozytorium na GitHub, dodaj do niego swoją aplikację, plik z wymaganiami (requirements.txt)')
 st.write('🐞 Udostępnij stworzoną przez siebie aplikację (https://share.streamlit.io) a link prześlij do prowadzącego')
+st.write('s24468')
