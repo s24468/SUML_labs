@@ -11,7 +11,7 @@ st.success('Gratulacje! Z powodzeniem uruchomiłeś aplikację')
 # z tego powodu dobrą praktyką jest informowanie użytkownika o postępie, błędach, etc.
 
 # Inne przykłady do wypróbowania:
-# st.balloons() # animowane balony ;)
+st.balloons() # animowane balony ;)
 # st.error('Błąd!') # wyświetla informację o błędzie
 # st.warning('Ostrzeżenie, działa, ale chyba tak sobie...')
 # st.info('Informacja...')
@@ -26,10 +26,10 @@ st.success('Gratulacje! Z powodzeniem uruchomiłeś aplikację')
 st.title('Text translator')
 # title, jak sama nazwa wskazuje, używamy do wyświetlenia tytułu naszej aplikacji
 
-st.header('Wprowadzenie do zajęć')
+# st.header('Wprowadzenie do zajęć')
 # header to jeden z podtytułów wykorzystywnaych w Streamlit
 
-st.subheader('O Streamlit')
+# st.subheader('O Streamlit')
 # subheader to jeden z podtytułów wykorzystywnaych w Streamlit
 
 st.text('Aplikacja do tłumaczenia tekstu')
@@ -41,8 +41,8 @@ st.text('Aplikacja do tłumaczenia tekstu')
 # st.code("st.write()", language='python')
 # # code może nam się czasami przydać, jeżeli chcielibyśmy pokazać np. klientowi fragment kodu, który wykorzystujemy w aplikacji
 
-with st.echo():
-    st.write("Echo")
+# with st.echo():
+#     st.write("Echo")
 # możemy też to zrobić prościej używając echo - pokazujemy kod i równocześnie go wykonujemy
 
 df = pd.read_csv("DSP_4.csv", sep = ';')
@@ -72,12 +72,12 @@ if option == "Wydźwięk emocjonalny tekstu (eng)":
         answer = classifier(text)
         st.write(answer)
 
-st.subheader('Zadanie do wykonania')
-st.write('Wykorzystaj Huggin Face do stworzenia swojej własnej aplikacji tłumaczącej tekst z języka angielskiego na język niemiecki. Zmodyfikuj powyższy kod dodając do niego kolejną opcję, tj. tłumaczenie tekstu. Informacje potrzebne do zmodyfikowania kodu znajdziesz na stronie Huggin Face - https://huggingface.co/docs/transformers/index')
-# st.write('🐞 Dodaj właściwy tytuł do swojej aplikacji, może jakieś grafiki?')
-st.write('🐞 Dodaj krótką instrukcję i napisz do czego służy aplikacja')
-st.write('🐞 Wpłyń na user experience, dodaj informacje o ładowaniu, sukcesie, błędzie, itd.')
-# st.write('🐞 Na końcu umieść swój numer indeksu')
-st.write('🐞 Stwórz nowe repozytorium na GitHub, dodaj do niego swoją aplikację, plik z wymaganiami (requirements.txt)')
-st.write('🐞 Udostępnij stworzoną przez siebie aplikację (https://share.streamlit.io) a link prześlij do prowadzącego')
+# st.subheader('Zadanie do wykonania')
+# st.write('Wykorzystaj Huggin Face do stworzenia swojej własnej aplikacji tłumaczącej tekst z języka angielskiego na język niemiecki. Zmodyfikuj powyższy kod dodając do niego kolejną opcję, tj. tłumaczenie tekstu. Informacje potrzebne do zmodyfikowania kodu znajdziesz na stronie Huggin Face - https://huggingface.co/docs/transformers/index')
+# # st.write('🐞 Dodaj właściwy tytuł do swojej aplikacji, może jakieś grafiki?')
+# st.write('🐞 Dodaj krótką instrukcję i napisz do czego służy aplikacja')
+# st.write('🐞 Wpłyń na user experience, dodaj informacje o ładowaniu, sukcesie, błędzie, itd.')
+# # st.write('🐞 Na końcu umieść swój numer indeksu')
+# st.write('🐞 Stwórz nowe repozytorium na GitHub, dodaj do niego swoją aplikację, plik z wymaganiami (requirements.txt)')
+# st.write('🐞 Udostępnij stworzoną przez siebie aplikację (https://share.streamlit.io) a link prześlij do prowadzącego')
 st.write('s24468')
