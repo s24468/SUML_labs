@@ -44,6 +44,6 @@ print(df_2.info())
 
 print(df_2.wiek.groupby([df_2.objawy]).describe())
 print(df_2.corr())
-sns.heatmap(df_2.corr)
+# sns.heatmap(df_2.corr)
 
 plt.figure(figsize=(10,5))
