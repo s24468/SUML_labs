@@ -1,9 +1,9 @@
 import streamlit as st
 import pandas as pd
 
-import time
-import matplotlib as plt
-import os
+# import time
+# import matplotlib as plt
+# import os
 # zaczynamy od zaimportowania bibliotek
 
 st.success('Gratulacje! Z powodzeniem uruchomiłeś aplikację')
