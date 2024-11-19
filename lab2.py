@@ -47,3 +47,8 @@ print(df_2.corr())
 # sns.heatmap(df_2.corr)
 
 plt.figure(figsize=(10,5))
+
+# # Print coefficient and intercept
+# print('y = a*x + b')
+# print('a = ', our_model.coef_[0][0])
+# print('b = ', our_model.intercept_[0])
