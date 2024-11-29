@@ -1,13 +1,13 @@
-import tkinter as tk
 from tkinter import ttk, messagebox
-import pandas as pd
 import numpy as np
 import pickle
+import logging
+import tkinter as tk
+import customtkinter
+import pandas as pd
 from sklearn.linear_model import LinearRegression
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
-import logging
-
 # Konfiguracja loggera
 logging.basicConfig(
     filename='logger.txt',
@@ -42,11 +42,22 @@ def update_and_fit_model(csv_path, x, y):
 
 
 # INTERFEJS
+def apply_scaling_to_widget(widget, scale_factor):
+    try:
+        widget.config(font=("TkDefaultFont", int(10 * scale_factor)))
+    except tk.TclError:
+        pass
+
+
 class MLApp(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title("ML Logit - Tkinter")
         self.geometry("900x600")
+
+        # set_appearance_mode
+        customtkinter.set_appearance_mode("Light")  # Default appearance mode
+        customtkinter.set_default_color_theme("blue")
 
         # Frame na przyciski (sidebar)
         self.sidebar_frame = tk.Frame(self, width=200, bg="lightgrey")
@@ -69,7 +80,23 @@ class MLApp(tk.Tk):
         self.y_label.pack(pady=5, padx=20)
         self.y_entry = tk.Entry(self.sidebar_frame)
         self.y_entry.pack(pady=5, padx=20)
+        # Opcje Appearance Mode
+        self.appearance_label = tk.Label(self.sidebar_frame, text="Appearance Mode:")
+        self.appearance_label.pack(pady=10, padx=20)
+        self.appearance_mode = ttk.Combobox(self.sidebar_frame, values=["Light", "Dark"])
+        self.appearance_mode.set("Light")
+        self.appearance_mode.pack(pady=5, padx=20)
+        self.appearance_mode.bind("<<ComboboxSelected>>", self.change_appearance_mode)
 
+        # Opcje UI Scaling
+        self.scaling_label = tk.Label(self.sidebar_frame, text="UI Scaling:")
+        self.scaling_label.pack(pady=10, padx=20)
+        self.ui_scaling = ttk.Combobox(self.sidebar_frame, values=["80%", "100%", "120%"])
+        self.ui_scaling.set("100%")
+        self.ui_scaling.pack(pady=5, padx=20)
+        self.ui_scaling.bind("<<ComboboxSelected>>", self.change_ui_scaling)
+
+        # Okno
         # Okno na wykres
         self.canvas_frame = tk.Frame(self, bg="white")
         self.canvas_frame.pack(side=tk.RIGHT, fill=tk.BOTH, expand=True, padx=10, pady=10)
@@ -130,6 +157,26 @@ class MLApp(tk.Tk):
         canvas = FigureCanvasTkAgg(fig, master=self.canvas_frame)
         canvas.draw()
         canvas.get_tk_widget().pack(fill=tk.BOTH, expand=True)
+
+
+    def change_appearance_mode(self, event):
+        mode = self.appearance_mode.get()
+        if mode == "Light":
+            self.configure(bg="white")
+        elif mode == "Dark":
+            self.configure(bg="grey")
+
+    def change_ui_scaling(self, event):
+        scaling = self.ui_scaling.get()
+        scale_factor = {"80%": 0.8, "100%": 1.0, "120%": 1.2}.get(scaling, 1.0)
+        # Apply scaling to all widgets in relevant frames
+        for frame in [self.sidebar_frame, self.table_frame, self.canvas_frame]:
+            for widget in frame.winfo_children():
+                apply_scaling_to_widget(widget, scale_factor)
+        # Optionally adjust window size
+        current_width = self.winfo_width()
+        current_height = self.winfo_height()
+        self.geometry(f"{int(current_width * scale_factor)}x{int(current_height * scale_factor)}")
 
 
 if __name__ == "__main__":
